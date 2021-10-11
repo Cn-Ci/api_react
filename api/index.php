@@ -2,7 +2,7 @@
 
 $route = $_SERVER["REQUEST_URI"];
 $routeParts = explode('/',$route);
-$controllerName = $routeParts[2] ?? null;
+$controllerName = $routeParts[4] ?? null;
 if(!isset($controllerName) || empty($controllerName))
     die(json_encode(false));
 
@@ -11,7 +11,7 @@ if(!file_exists($controllerFile))
     die(json_encode(false));
 
 include_once $controllerFile;
-array_splice($routeParts,0,3);
+array_splice($routeParts,0,5);
 $controllerClass = ucfirst($controllerName)."Controller";
 $controller = new $controllerClass($routeParts);
 

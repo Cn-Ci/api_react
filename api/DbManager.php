@@ -15,7 +15,7 @@ class DbManager
             //Connexion à la DB
             $host = "localhost";
             $port = "3306";
-            $dbName = "db_js";
+            $dbName = "api_react";
             $dsn = "mysql:host=$host;port=$port;dbname=$dbName";
             $user = "root";
             $pass = "";
