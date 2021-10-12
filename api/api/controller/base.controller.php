@@ -85,19 +85,20 @@ class BaseController {
     }
 
     protected function create(){
-        return "create an  $this->table";
+        return $this->db->insertOne($this->body);
     }
 
     protected function update(){
-        return "update an  $this->table";
+        return $this->db->updateOne($this->body);
     }
 
     protected function softDelete(){
-        return "softDelete an  $this->table";
+        $this->body['deleted'] = 1;
+        return $this->db->updateOne($this->body);
     }
 
     protected function hardDelete(){
-        return "hardDelete an  $this->table";
+        return $this->db->deleteOne($this->body);
     }
 
 
