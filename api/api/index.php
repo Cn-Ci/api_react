@@ -1,8 +1,10 @@
 <?php
 
-$route = $_SERVER["REQUEST_URI"];
+$entryFolder = '/developper/api_react/api/api/';
+$fullRoute = $_SERVER["REQUEST_URI"];
+$route = str_replace($entryFolder,'',$fullRoute);
 $routeParts = explode('/',$route);
-$controllerName = $routeParts[4] ?? null;
+$controllerName = array_shift($routeParts);
 if(!isset($controllerName) || empty($controllerName))
     die(json_encode(false));
 
@@ -11,7 +13,6 @@ if(!file_exists($controllerFile))
     die(json_encode(false));
 
 include_once $controllerFile;
-array_splice($routeParts,0,5);
 $controllerClass = ucfirst($controllerName)."Controller";
 $controller = new $controllerClass($routeParts);
 

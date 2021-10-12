@@ -59,7 +59,7 @@ class BaseController {
     }
 
     protected function getAll($params){
-        array_shift($params);
+        array_shift($params);//remove 'all'
         $where = "";
         foreach($params as $param){
             $param = urldecode($param);
@@ -85,15 +85,19 @@ class BaseController {
     }
 
     protected function create(){
-        return "create an account $this->table";
+        return "create an  $this->table";
     }
 
     protected function update(){
-        return "update an account $this->table";
+        return "update an  $this->table";
     }
 
-    protected function delete(){
-        return "delete an account $this->table";
+    protected function softDelete(){
+        return "softDelete an  $this->table";
+    }
+
+    protected function hardDelete(){
+        return "hardDelete an  $this->table";
     }
 
 

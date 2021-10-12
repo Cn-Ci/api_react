@@ -6,7 +6,7 @@ class AccountController extends BaseController
 {
 
     // public function __construct($routeParts){
-    //     $this->table = "user";
+    //     $this->table = "account";
     //     parent::__construct($routeParts);
     // }
 
@@ -21,6 +21,7 @@ class AccountController extends BaseController
 
     protected function login()
     {
+        // if($this->method )
         $email = $this->body['email'];
         $accounts = $this->db->getAll("email = '$email' AND active = 1");
         $account = $accounts[0] ?? null;
