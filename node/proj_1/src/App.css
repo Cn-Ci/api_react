@@ -1,11 +1,15 @@
+.Home {
+  min-height: 100vh;
+  color: black
+}
+
 .App {
   text-align: center;
   padding-top: 20px;
   align-items: center;
   display: flex;
   flex-direction: column;
-  color:white;
-  
+  color:black;
 }
 
 .btn-lang{

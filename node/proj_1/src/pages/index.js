@@ -1,0 +1,6 @@
+export * from './Home'
+export * from './Formu'
+export * from './Activity'
+export * from './SeLoger'
+export * from './SeNourrir'
+export * from './SeSoigner'

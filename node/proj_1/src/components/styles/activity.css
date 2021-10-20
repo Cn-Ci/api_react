@@ -1,0 +1,14 @@
+.activity {
+    display: flex;
+    flex-direction:column;
+}
+
+.imgCarousel {
+    height: 500px
+}
+
+@media (max-width: 991.98px) { 
+    .imgCarousel {
+        height: 200px
+    }
+ }
