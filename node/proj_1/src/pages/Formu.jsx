@@ -1,11 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+
 import { CustomActivity } from '../components/CustomActivity';
 import { useState } from 'react';
 import { FiUserPlus } from 'react-icons/fi';
 import { FiUserCheck } from 'react-icons/fi';
-import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TextField from 'material-ui/TextField';
+import RaisedButton from "material-ui/RaisedButton";
 import { UserForm } from '../components/UserForm';
 
 
@@ -27,28 +29,29 @@ export function Formu() {
                 {page === 'FormIns' && <UserForm/>}
 
                 {page === 'FormLog' &&
-                    <Form className="mt-5 text-white">
-                    <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-                      <Form.Label className="text-black" column sm="2">
-                        Email
-                      </Form.Label>
-                      <Col sm="10">
-                        <Form.Control className="text-center" defaultValue="email@example.com" />
-                      </Col>
-                    </Form.Group>
-                  
-                    <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                      <Form.Label column sm="2">
-                        Password
-                      </Form.Label>
-                      <Col sm="10">
-                        <Form.Control className="text-center" type="password" placeholder="Password" />
-                      </Col>
-                    </Form.Group>
-                  </Form>
+                    <MuiThemeProvider>
+                        <React.Fragment className="text-white">
+                            <TextField 
+                                hintText="Enter your email" 
+                                floatingLabelText="email" 
+                                // defaultValue={values.occupation} 
+                            /> <br/>
+                            <TextField 
+                                hintText="Enter your password" 
+                                floatingLabelText="password" 
+                                // defaultValue={values.city} 
+                            /> <br/>
+                            <RaisedButton className="mx-2" label="Connexion" primary={true} styles={styles.button} />
+                        </React.Fragment>
+                    </MuiThemeProvider>
                 }
             </div>
         </div>
     );
 }
 
+const styles = {
+  button: {
+      margin:15
+  }
+}

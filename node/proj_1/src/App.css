@@ -15,3 +15,9 @@
 .btn-lang{
   min-width: 200px;
 }
+
+.spinner {
+  margin:auto;
+  
+  transform: translateX(50%);
+}
